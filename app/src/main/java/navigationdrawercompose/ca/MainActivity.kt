@@ -23,24 +23,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NavigationDrawerComposeTheme {
-                Setup()
-            }
-        }
-    }
-}
 
-@Composable
-fun Setup() {
-    Box(Modifier.padding(16.dp).background(Color.Cyan)) {
-        Column {
-            Text(text = "teste", style = Typography.h2)
-            Text("teste", style = Typography.h1)
-            Row {
-                Text("teste")
-                Spacer(modifier = Modifier.padding(16.dp))
-                Text("teste")
             }
-            MyComposable()
         }
     }
 }
@@ -49,46 +33,6 @@ fun Setup() {
 @Composable
 fun DefaultPreview() {
     NavigationDrawerComposeTheme {
-        Setup()
+
     }
-}
-
-@Composable
-fun MyComposable(){
-    var myValue by remember {
-        mutableStateOf(false)
-    }
-
-    Button(
-        onClick = {myValue = !myValue},
-        modifier = Modifier.padding(16.dp)
-    ) {
-        Text(text = "$myValue")
-    }
-
-    ScreenContent()
-
-    val items = mutableListOf<String>()
-    for(i in 1..10){
-        items.add("line $i")
-    }
-    LazyColumn {
-        items(items) { name->
-            Text(text = "$name", modifier = Modifier.padding(8.dp))
-        }
-    }
-}
-
-@Composable
-fun ScreenContent() {
-    var name by remember{ mutableStateOf("")}
-
-    TextField(
-        value = name,
-        onValueChange = {name = it},
-        label = { Text("Name") },
-        modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-    )
 }
