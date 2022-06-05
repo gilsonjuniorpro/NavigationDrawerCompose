@@ -34,7 +34,7 @@ fun Setup() {
     Box(Modifier.padding(16.dp).background(Color.Cyan)) {
         Column {
             Text(text = "teste", style = Typography.h2)
-            Text("teste")
+            Text("teste", style = Typography.h1)
             Row {
                 Text("teste")
                 Spacer(modifier = Modifier.padding(16.dp))
