@@ -10,7 +10,10 @@ import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -57,15 +60,29 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Profile(navController: NavController) {
-    Button(onClick = { navController.navigate(ITEM_HOME) }) {
-        Text(text = "Profile -> GO TO HOME")
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        Alignment.Center
+    ){
+        Button(onClick = { navController.navigate(ITEM_HOME) }) {
+            Text(text = "Profile -> GO TO HOME")
+        }
     }
 }
 
 @Composable
 fun Settings(navController: NavController) {
-    Button(onClick = { navController.navigate(ITEM_HOME) }) {
-        Text(text = "Settings -> GO TO HOME")
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        Alignment.Center
+    ){
+        Button(onClick = { navController.navigate(ITEM_HOME) }) {
+            Text(text = "Settings -> GO TO HOME")
+        }
     }
 }
 
@@ -125,8 +142,24 @@ fun Home(navController: NavController) {
             )
         }
     ) {
-        Button(onClick = { navController.navigate(ITEM_PROFILE) }) {
-            Text(text = "GO TO PROFILE")
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            Alignment.Center
+        ){
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Button(onClick = { navController.navigate(ITEM_PROFILE) }) {
+                    Text(text = "Home -> GO TO PROFILE")
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+                Button(onClick = { navController.navigate(ITEM_SETTINGS) }) {
+                    Text(text = "Home -> GO TO SETTINGS")
+                }
+            }
         }
     }
 }
