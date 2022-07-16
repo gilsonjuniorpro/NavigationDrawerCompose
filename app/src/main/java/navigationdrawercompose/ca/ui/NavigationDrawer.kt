@@ -1,6 +1,7 @@
 package navigationdrawercompose.ca.ui
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -18,11 +20,12 @@ import androidx.compose.ui.unit.sp
 fun DrawerHeader() {
     Box(
         modifier = Modifier
+            .background(color = Color.DarkGray)
             .fillMaxWidth()
-            .padding(vertical = 64.dp),
+            .padding(vertical = 24.dp),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Header", fontSize = 60.sp)
+        Text(text = "Header", fontSize = 30.sp)
     }
 }
 
